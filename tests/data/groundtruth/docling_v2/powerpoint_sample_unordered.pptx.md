@@ -19,11 +19,9 @@ A rectangle shape with this text inside.
 
 Let’s introduce a list
 
-With foo
-
-Bar
-
-And baz things
+- With foo
+- Bar
+- And baz things
 
 1. List item4
 2. List item5

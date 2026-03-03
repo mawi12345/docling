@@ -720,12 +720,15 @@ class MsPowerpointDocumentBackend(DeclarativeDocumentBackend, PaginatedDocumentB
             # will be sorted on the same line.
             def gen_sort_keys(shapes, max_top_distance=Mm(3)):
                 top = None
-                for shape in sorted(shapes, key=lambda s: s.top):
-                    if top is None or abs(top - shape.top) > max_top_distance:
-                        top = shape.top
-                    yield (shape, (top, shape.left))
+                for shape in sorted(shapes, key=lambda s: Mm(0) if not s.top else s.top):
+                    shapetop = Mm(0) if not shape.top else shape.top
+
+                    if top is None or abs(top - shapetop) > max_top_distance:
+                        top = shapetop
+                    yield shape, (top, Mm(0) if not shape.left else shape.left)
 
             # Loop through each shapes on the slide and sort them by top cluster and left
+            # for shape in slide.shapes:
             for shape, sort in sorted(
                 gen_sort_keys(slide.shapes),
                 key=lambda s: s[1],

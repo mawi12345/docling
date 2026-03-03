@@ -1,6 +1,6 @@
 {
   "schema_name": "DoclingDocument",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "name": "powerpoint_sample",
   "origin": {
     "mimetype": "application/vnd.ms-powerpoint",
@@ -65,10 +65,10 @@
           "$ref": "#/texts/3"
         },
         {
-          "$ref": "#/groups/2"
+          "$ref": "#/texts/4"
         },
         {
-          "$ref": "#/texts/7"
+          "$ref": "#/groups/2"
         },
         {
           "$ref": "#/texts/8"
@@ -85,13 +85,13 @@
       },
       "children": [
         {
-          "$ref": "#/texts/4"
-        },
-        {
           "$ref": "#/texts/5"
         },
         {
           "$ref": "#/texts/6"
+        },
+        {
+          "$ref": "#/texts/7"
         }
       ],
       "content_layer": "body",
