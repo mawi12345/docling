@@ -1,15 +1,17 @@
 # Test Table Slide
 
-|    | Class1          | Class1          | Class1   | Class2   | Class2   | Class2   |
-|----|-----------------|-----------------|----------|----------|----------|----------|
-|    | A merged with B | A merged with B | C        | A        | B        | C        |
-| R1 | True            | False           |          | False    | True     | True     |
-| R2 |                 |                 | True     | False    |          |          |
-| R3 | False           |                 |          |          | False    |          |
-| R3 |                 | True            |          | True     |          |          |
-| R4 |                 |                 | False    |          | False    |          |
-| R4 |                 | True            |          | True     | False    | False    |
-| R4 | True            | False           | True     | False    | True     | False    |
+With footnote
+
+|  | Class1 | Class1 | Class1 | Class2 | Class2 | Class2 |
+| - | - | - | - | - | - | - |
+|  | A merged with B | A merged with B | C | A | B | C |
+| R1 | True | False |  | False | True | True |
+| R2 |  |  | True | False |  |  |
+| R3 | False |  |  |  | False |  |
+| R3 |  | True |  | True |  |  |
+| R4 |  |  | False |  | False |  |
+| R4 |  | True |  | True | False | False |
+| R4 | True | False | True | False | True | False |
 
 With footnote
 
