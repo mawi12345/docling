@@ -73,6 +73,32 @@ def test_cli_convert(tmp_path):
     assert converted.exists()
 
 
+def test_cli_exports_doclang(tmp_path):
+    source = tmp_path / "input.md"
+    source.write_text("# DocLang CLI\n\nHello from Markdown.", encoding="utf-8")
+    output = tmp_path / "out"
+
+    result = runner.invoke(
+        app,
+        [
+            str(source),
+            "--from",
+            "md",
+            "--to",
+            "doclang",
+            "--output",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0
+    converted = output / "input.dclg.xml"
+    assert converted.exists()
+    content = converted.read_text(encoding="utf-8")
+    assert "<doclang>" in content
+    assert "DocLang CLI" in content
+
+
 def test_cli_html_fetches_local_images_per_input(tmp_path):
     first_png = _png_bytes((255, 0, 0))
     second_png = _png_bytes((0, 0, 255))
@@ -150,6 +176,12 @@ def test_cli_html_fetches_remote_images_with_separate_headers(tmp_path, monkeypa
 
         def iter_content(self, chunk_size: int):
             yield self.content
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
 
     def fake_get(self, url: str, **kwargs):
         calls.append((url, kwargs))
@@ -260,6 +292,7 @@ def test_export_documents_marks_empty_markdown_as_failure(tmp_path):
         export_txt=False,
         export_doctags=False,
         export_vtt=False,
+        export_doclang=False,
         print_timings=False,
         export_timings=False,
         image_export_mode=ImageRefMode.PLACEHOLDER,
@@ -320,6 +353,7 @@ def test_export_documents_marks_stat_errors_as_failure(tmp_path, monkeypatch):
         export_txt=False,
         export_doctags=False,
         export_vtt=False,
+        export_doclang=False,
         print_timings=False,
         export_timings=False,
         image_export_mode=ImageRefMode.PLACEHOLDER,
@@ -334,6 +368,7 @@ def test_export_documents_marks_stat_errors_as_failure(tmp_path, monkeypatch):
     [
         (ImageRefMode.PLACEHOLDER, [OutputFormat.JSON], False),
         (ImageRefMode.EMBEDDED, [OutputFormat.TEXT, OutputFormat.DOCTAGS], False),
+        (ImageRefMode.EMBEDDED, [OutputFormat.DOCLANG], False),
         (ImageRefMode.EMBEDDED, [OutputFormat.MARKDOWN], True),
         (
             ImageRefMode.EMBEDDED,
@@ -351,6 +386,7 @@ def test_image_export_policy_covers_all_output_formats():
         OutputFormat.TEXT,
         OutputFormat.DOCTAGS,
         OutputFormat.VTT,
+        OutputFormat.DOCLANG,
     }
     image_export_formats = set(OutputFormat) - non_image_export_formats
 

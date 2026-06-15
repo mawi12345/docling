@@ -1,3 +1,37 @@
+## [v2.102.1](https://github.com/docling-project/docling/releases/tag/v2.102.1) - 2026-06-12
+
+### Fix
+
+* **service:** Defaults for image_export_mode ([#3595](https://github.com/docling-project/docling/issues/3595)) ([`2d2e3dc`](https://github.com/docling-project/docling/commit/2d2e3dc7def617ae95730697e5a2498500d143a2))
+
+## [v2.102.0](https://github.com/docling-project/docling/releases/tag/v2.102.0) - 2026-06-12
+
+### Feature
+
+* **service:** Retrieve convert()/convert_all() results via presigned artifacts ([#3578](https://github.com/docling-project/docling/issues/3578)) ([`521e86b`](https://github.com/docling-project/docling/commit/521e86bb1837d5e26a2ef28f1e781f50bd8e092d))
+
+## [v2.101.0](https://github.com/docling-project/docling/releases/tag/v2.101.0) - 2026-06-10
+
+### Feature
+
+* **service:** Add explicit generate_page_images control in ConvertDocumentsOptions ([#3574](https://github.com/docling-project/docling/issues/3574)) ([`1b80839`](https://github.com/docling-project/docling/commit/1b80839c996136eed47c4875e8a82f0d7ff19c69))
+
+### Fix
+
+* Update _DocumentConversionInput to avoid construction with too large HTTP inputs ([#3577](https://github.com/docling-project/docling/issues/3577)) ([`2288658`](https://github.com/docling-project/docling/commit/22886583af5a074a8a976af009d42a81c7d67ec4))
+
+## [v2.100.0](https://github.com/docling-project/docling/releases/tag/v2.100.0) - 2026-06-09
+
+### Feature
+
+* Add DocLang backend ([#3573](https://github.com/docling-project/docling/issues/3573)) ([`7c37732`](https://github.com/docling-project/docling/commit/7c377320df4497aa5054d2fb4c288f035942b193))
+* Add EPUB document backend with full conversion support ([#3571](https://github.com/docling-project/docling/issues/3571)) ([`bffe900`](https://github.com/docling-project/docling/commit/bffe900d43150b90b4110c5e0ec3c7c69b64cd04))
+
+### Fix
+
+* Expose CLI entry points when installing docling meta-package ([#3572](https://github.com/docling-project/docling/issues/3572)) ([`c5fa6e3`](https://github.com/docling-project/docling/commit/c5fa6e3cad2dcc174bb6ba56b2981df2d1df6ee0))
+* Propagate the orientation of the TableData ([#3570](https://github.com/docling-project/docling/issues/3570)) ([`b108ca8`](https://github.com/docling-project/docling/commit/b108ca8c0fe0f6f0d619b839b3d0207bb0b5ba05))
+
 ## [v2.99.0](https://github.com/docling-project/docling/releases/tag/v2.99.0) - 2026-06-08
 
 ### Feature
